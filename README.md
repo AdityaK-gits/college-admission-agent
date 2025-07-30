@@ -53,15 +53,6 @@ The College Admission Agent acts as a smart digital assistant that:
 - Modular dialog structure for easy future edits
 - Trained to handle both general and specific queries
 
----
-
-## 📸 Preview Screenshots
-
-All screenshots related to:
-- Assistant structure and dialog flow
-- Chat previews with sample queries
-- Deployment view
-can be found in the [`/screenshots`](./screenshots) folder.
 
 ---
 
