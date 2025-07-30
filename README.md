@@ -99,8 +99,7 @@ The College Admission Agent acts as a smart digital assistant that:
 
 - `/screenshots`: Images of project setup and chat  
 - `README.md`: This documentation  
-- (Optional) Chat flow or docs in PDF if uploaded
-
+  
 ---
 
 ## 🔗 Live Preview
