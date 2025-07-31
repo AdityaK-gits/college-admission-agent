@@ -1,0 +1,37 @@
+import requests
+
+# STEP 1: Authentication using your IBM Cloud API Key
+API_KEY = "cpd-apikey-IBMid-6950010BR4-2025-07-29T14:09:03Z"
+token_response = requests.post(
+    'https://iam.cloud.ibm.com/identity/token',
+    data={"apikey": API_KEY, "grant_type": 'urn:ibm:params:oauth:grant-type:apikey'}
+)
+mltoken = token_response.json()["access_token"]
+
+# STEP 2: Set the header with the token
+header = {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + mltoken
+}
+
+# STEP 3: Set your user message here
+payload_scoring = {
+    "messages": [
+        {"content": "Tell me about the admission process", "role": "user"}
+    ]
+}
+
+# STEP 4: Replace this with your actual deployment URL
+deployment_url = "https://us-south.ml.cloud.ibm.com/ml/v4/deployments/eb2e323e-893f-4452-82d8-3ed9ac19663d/ai_service_stream?version=2021-05-01"
+
+# STEP 5: Send the request
+response_scoring = requests.post(deployment_url, json=payload_scoring, headers=header)
+
+# STEP 6: Display the response
+print("Scoring response:")
+try:
+    print(response_scoring.json())
+except ValueError:
+    print(response_scoring.text)
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
